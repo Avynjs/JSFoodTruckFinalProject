@@ -1,0 +1,64 @@
+:root{
+    --background: #7495A6;
+    --navbar-background: #008693;
+    --navbar-text-color: #F2F2F2;
+    --title-color: #F2CB05;
+
+    --title-font: "Shadows Into Light", cursive;
+    --nav-font: "Bebas Neue", sans-serif;
+    --body-font: "Montserrat", sans-serif;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    background-color: var(--background);
+    font-family: var(--body-font);
+}
+
+nav{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--navbar-background);
+    font-family: var(--nav-font);
+    padding: 5px;
+}
+
+nav h2{
+    font-size: 2.3em;
+    margin: 0 40% 0 3%;
+    align-self: center;
+    font-family: var(--nav-font);
+}
+
+nav ul{
+    width: 40vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav li{
+    list-style-type: none;
+}
+
+nav li a{
+    text-decoration: none;
+    font-size: 1.6em;
+    color: var(--navbar-text-color);
+}
+
+nav li a:hover{
+    color: #88A33C;
+    transition: color 300ms;
+}
+
+#wrapper{
+    width: 97vw;
+    margin: 0 auto;
+}
+

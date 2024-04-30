@@ -1,0 +1,80 @@
+/* home body css */
+#title{
+    font-family: var(--title-font);
+    font-size: 8em;
+    margin: 0;
+    text-align: center;
+    color: var(--title-color);
+}
+
+#grid-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.body-text{
+    width: 60vw;
+    margin-left: 5%;
+    font-size: 1.3em;
+    margin-bottom: 4%;
+}
+
+#tacos{
+    justify-self: end;
+    align-self: center;
+    margin-right: 2%;
+}
+
+#events{
+    clear: both;
+    margin-left: 5%;
+    font-size: 2em;
+}
+
+.event-info{
+    margin-left: 3%;
+}
+
+.event-info h3{
+    font-size: 1em;
+    color: #A60C10;
+}
+
+.menuBtn{
+    /* background-color: transparent; */
+    border: none;
+    width: 5%;
+    border-radius: 5px;
+    margin-left: 2%;
+}
+
+.menuBtn:hover{
+    /* background-color: #88A33C; */
+    border-radius: 20px;
+    transition: width 3s;
+}
+
+.menuBtn i{
+    font-size: 1.4em;
+}
+
+.event-text{
+    display: none;
+    font-size: 0.7em;
+    margin-left: 3%;
+}
+
+.event-text p{
+    font-size: 1.2em;
+    width: 80%;
+    margin-bottom: 0;
+}
+
+#event-text li{
+    list-style-type: none;
+    line-height: 5vh;
+}
+
+.bold{
+    font-weight: bold;
+}
