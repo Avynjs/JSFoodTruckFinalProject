@@ -1,0 +1,93 @@
+:root{
+    --background: #7495A6;
+    --navbar-background: #008693;
+    --navbar-text-color: #F2F2F2;
+    --title-color: #F2CB05;
+
+    --title-font: "Shadows Into Light", cursive;
+    --nav-font: "Bebas Neue", sans-serif;
+    --body-font: "Montserrat", sans-serif;
+}
+
+#wrapper{
+    width: 90vw;
+    min-height: 120vh;
+}
+
+#wrapper h1{
+    text-align: center;
+    font-size: 4em;
+}
+
+#wrapper p{
+    line-height: 4vh;
+    width: 70%;
+    margin: 0 auto;
+}
+
+form{
+    width: 80vw;
+    height: 70vh;
+    margin: 0 auto;
+    margin-top: 3%;
+    background-color: #D9D9D9;
+    padding: 2%;
+    border-radius: 15px;
+    border: 3px solid var(--title-color);
+}
+
+#grid-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6%;
+    margin-top: 3%;
+}
+
+div{
+    justify-self: center;
+}
+
+label{
+    width: fit-content;
+    font-size: 95%;
+    margin-right: 2%;
+    margin-left: 4%;
+}
+
+input{
+    border: none;
+    margin-left: 4%;
+    width: 80%;
+}
+
+textarea{
+    width: 100%;
+    border: none;
+}
+
+#text{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 2%;
+}
+
+#submit{
+    width: 10vw;
+    margin: 0 auto;
+    margin-top: 3%;
+}
+button{
+    width: 10vw;
+    height: 5vh;
+    border-radius: 20px;
+    font-size: 1em;
+    border: 1px solid gray;
+}
+
+button:hover{
+    background-color: #D94F04;
+    color: white;
+}
