@@ -17,6 +17,9 @@
 
         <!-- body font -->
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+        
+        <!-- importing icons -->
+        <script src="https://kit.fontawesome.com/a2fbff50ab.js" crossorigin="anonymous"></script>
         <title>Guac 'n Roll</title>
     </head>
     <body>
@@ -37,6 +40,111 @@
                 <p>But Guac 'n Roll is more than just great food; it's a mobile fiesta, bringing people together to share in the joy of good food and good company. So join us on this culinary adventure and let your taste buds dance to the rhythm of Guac 'n Roll!</p>
             </div>
             <img src="images/home1.jpg" alt="tacos" id="tacos">
+            <div id="events">
+                <h2>Events</h2>
+                <div class="event-info">
+                    <h3>
+                        Taco Tuesdays at Downtown Plaza 
+                        <button class="menuBtn" id="drop" onclick="displayText('event1')"><i class="fa-solid fa-caret-down"></i></button>
+                        <button class="menuBtn" id="hide" onclick="hideText('event1')"><i class="fa-solid fa-caret-up"></i></button>
+                    </h3>
+                    <div class="event-text" id="event1">
+                        <p>
+                            Join us every Tuesday for a fiesta of tacos! Enjoy our delicious variety of tacos with fresh guacamole and salsa, right in the heart of Downtown Plaza.
+                        </p>
+                        <ul>
+                            <li><span class="bold">Location:</span> Downtown Plaza, 634 Main St, San Diego, CA</li>
+                            <li><span class="bold">Date:</span> Every Tuesday in May</li>
+                            <li><span class="bold">Hours:</span> 11:00 AM - 2:00 PM</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="event-info">
+                    <h3>
+                        Cinco de Mayo Fiesta 
+                        <button class="menuBtn" id="drop" onclick="displayText('event2')"><i class="fa-solid fa-caret-down"></i></button>
+                        <button class="menuBtn" id="hide" onclick="hideText('event2')"><i class="fa-solid fa-caret-up"></i></button>
+                    </h3>
+                    <div class="event-text" id="event2">
+                        <p>
+                            Celebrate Cinco de Mayo with Guac 'n Roll at City Park! Indulge in our special Cinco de Mayo menu featuring festive tacos, margaritas, and live music for a night of fun and flavor.
+                        </p>
+                        <ul>
+                            <li><span class="bold">Location:</span> City Park, 1904 Elm Avenue, San Diego, CA</li>
+                            <li><span class="bold">Date:</span> May 5th</li>
+                            <li><span class="bold">Hours:</span> 4:00 PM - 9:00 PM</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="event-info">
+                    <h3>
+                        Food Truck Fridays at the Beach
+                        <button class="menuBtn" id="drop" onclick="displayText('event3')"><i class="fa-solid fa-caret-down"></i></button>
+                        <button class="menuBtn" id="hide" onclick="hideText('event3')"><i class="fa-solid fa-caret-up"></i></button>
+                    </h3>
+                    <div class="event-text" id="event3">
+                        <p>
+                            Kick off your weekend with Guac 'n Roll at Food Truck Fridays! Enjoy beachside dining with our signature burritos, nachos, and refreshing agua frescas.
+                        </p>
+                        <ul>
+                            <li><span class="bold">Location:</span> Beachfront Boardwalk, 745 Ocean Drive, San Diego, CA</li>
+                            <li><span class="bold">Date:</span> Every Friday in June</li>
+                            <li><span class="bold">Hours:</span> 5:00 PM - 9:00 PM</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="event-info">
+                    <h3>
+                        Salsa & Sips Night
+                        <button class="menuBtn" id="drop" onclick="displayText('event4')"><i class="fa-solid fa-caret-down"></i></button>
+                        <button class="menuBtn" id="hide" onclick="hideText('event4')"><i class="fa-solid fa-caret-up"></i></button>
+                    </h3>
+                    <div class="event-text" id="event4">
+                        <p>
+                            Spice up your evening at Salsa & Sips Night! Sample our homemade salsas paired with craft cocktails and live salsa dancing for a night of flavor and fun.
+                        </p>
+                        <ul>
+                            <li><span class="bold">Location:</span> Guac 'n Roll Parking Lot, 1602 Oakwood Ave, San Diego, CA</li>
+                            <li><span class="bold">Date:</span> July 15th</li>
+                            <li><span class="bold">Hours:</span> 6:00 PM - 10:00 PM</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="event-info">
+                    <h3>
+                        Summer Fiesta Festival
+                        <button class="menuBtn" id="drop" onclick="displayText('event5')"><i class="fa-solid fa-caret-down"></i></button>
+                        <button class="menuBtn" id="hide" onclick="hideText('event5')"><i class="fa-solid fa-caret-up"></i></button>
+                    </h3>
+                    <div class="event-text" id="event5">
+                        <p>
+                            Join us for a weekend of fiesta fun at the Summer Fiesta Festival! Guac 'n Roll will be serving up our signature Mexican dishes alongside live entertainment, games, and a margarita bar.
+                        </p>
+                        <ul>
+                            <li><span class="bold">Location:</span> Town Square, 555 Fiesta Street, San Diego, CA</li>
+                            <li><span class="bold">Date:</span> August 10th - August 12th</li>
+                            <li><span class="bold">Hours:</span> Friday 4:00 PM - 10:00 PM, Saturday 12:00 PM - 10:00 PM, Sunday 12:00 PM - 6:00 PM</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="event-info">
+                    <h3>
+                        Dia de los Muertos Celebration
+                        <button class="menuBtn" id="drop" onclick="displayText('event6')"><i class="fa-solid fa-caret-down"></i></button>
+                        <button class="menuBtn" id="hide" onclick="hideText('event6')"><i class="fa-solid fa-caret-up"></i></button>
+                    </h3>
+                    <div class="event-text" id="event6">
+                        <p>
+                            Honor Dia de los Muertos with Guac 'n Roll at the Cultural Center! Feast on traditional Mexican cuisine, participate in sugar skull decorating, and enjoy live music and dance performances.
+                        </p>
+                        <ul>
+                            <li><span class="bold">Location:</span> Cultural Center, 1478 Heritage Avenue, San Diego, CA</li>
+                            <li><span class="bold">Date:</span> November 2nd</li>
+                            <li><span class="bold">Hours:</span> 6:00 PM - 11:00 PM</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>
