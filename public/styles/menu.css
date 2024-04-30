@@ -9,8 +9,53 @@
     --body-font: "Montserrat", sans-serif;
 }
 
+#wrapper{
+    width: 90%;
+}
+#grid-container{
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+}
+
 h1{
     text-align: center;
-    font-size: 4em;
-    
+    font-size: 4em;    
+}
+
+#wrapper h2{
+    font-size: 2em;
+}
+
+.menu-item{
+    margin-left: 3%;
+}
+
+.menu-item p:last-of-type{
+    margin-left: 6%;
+    font-style: italic;
+}
+
+.bold{
+    font-weight: 600;
+    font-style: normal;
+}
+
+#entrees h3{
+    color: #D94F04;
+}
+
+#sides h3{
+    color: var(--title-color);
+}
+
+#drinks{
+    margin-top: 5%;
+}
+
+#drinks-menu h3{
+    color: #3B7302;
+}
+#grid-two{
+    display: grid;
+    grid-template-columns: 3fr 1fr 3fr;
 }
