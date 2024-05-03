@@ -1,6 +1,6 @@
 const { MongoClient, ObjectId } = require('mongodb')
 
-const url = process.env.MONGODB_URI || require('./secrets/mongodb.json').url
+const url = process.env.MONGODB_URL || require('./secrets/mongodb.json').url
 const client = new MongoClient(url)
 
 const getCollection = async (dbName, collectionName) => {
