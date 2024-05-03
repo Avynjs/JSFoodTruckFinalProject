@@ -1,0 +1,15 @@
+:root{
+    --background: #7495A6;
+    --navbar-background: #008693;
+    --navbar-text-color: #F2F2F2;
+    --title-color: #F2CB05;
+
+    --title-font: "Shadows Into Light", cursive;
+    --nav-font: "Bebas Neue", sans-serif;
+    --body-font: "Montserrat", sans-serif;
+}
+
+/* Fill in once admin page is set up */
+form {
+    border: black, 2px, solid;
+}
