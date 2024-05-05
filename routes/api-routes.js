@@ -38,13 +38,15 @@ router.get('/events/:id', async (req, res) => {
 
 //POST /api/events (create a new event)
 router.post('/events', async (req, res) => {
-const { body } = req
-const { name, date } = body
-const event = { name, date }
+    // const { body } = req
+    // const { name, date } = body
+    // const event = { name, date }
 
-const collection = await getCollection('foodtruck-api', 'events')
-const result = await collection.insertOne(event)
-res.json(result)
+    const { name, date } = req.body
+
+    const collection = await getCollection('foodtruck-api', 'events')
+    const result = await collection.insertOne({ name, date })
+    res.json(result)
 })
 
 // PUT /api/events/:id (update a single event)

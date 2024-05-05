@@ -35,17 +35,21 @@
             <div>
                 <h3>Add Menu Items</h3>
                 <form action="" method="" id="add-item">
-                    <input type="text" id="menu-item" placeholder="New Menu Item">
+                    <input type="text" id="menu-item" placeholder="Menu Item">
                     <input type="text" id="description" placeholder="Item Description">
                     <input type="text" id="price" placeholder="Item Price">
+                    <!-- <select name="category" id="category">
+                        <option value="" disabled>Select a Category</option>
+                        <option value="entree">entree</option>
+                        <option value="side">side</option>
+                        <option value="drink">drink</option>
+                    </select> -->
                     <button type="submit" id="add-menu">Add Item</button>
                 </form>
             </div>
             <div>
                 <h3>Update Menu Items</h3>
-                <form action="">
-                    <input type="text" id="update-eventName" placeholder="Item To Update">
-                </form>
+                
             </div>
             <div>
                 <h3>Delete Menu Items</h3>
@@ -54,17 +58,27 @@
             <!--Events Contain Fields: ID (auto), name, date (string)-->
             <div>
                 <h3>Add Events</h3>
-                <form action="" method="" id="add-event">
-                    <input type="text" id="event-name" placeholder="New Event">
-                    <input type="text" id="event-date" placeholder="Event Date">
+                <form action="" method="" id="add-new-event">
+                    <input type="text" id="add-name" placeholder="Event Name">
+                    <input type="text" id="add-date" placeholder="Event Date">
                     <button type="submit" id="add-event">Add Event</button>
                 </form>
             </div>
             <div>
                 <h3>Update Events</h3>
+                <form action="" method="" id="update-event">
+                    <input type="text" id="update-event-id" placeholder="Event ID">
+                    <input type="text" id="update-name" placeholder="Event Name">
+                    <input type="text" id="update-date" placeholder="Event Date">
+                    <button type="submit" id="update-event-btn">Update Event</button>
+                </form>
             </div>
             <div>
                 <h3>Delete Events</h3>
+                <form action="" method="" id="delete-event">
+                    <input type="text" id="delete-event-id" placeholder="Event ID">
+                    <button type="submit" id="delete-event-btn">Delete Event</button>
+                </form>
             </div>
         </div>
     </body>
