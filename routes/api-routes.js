@@ -49,6 +49,7 @@ router.put('/events/:id', async (req, res) => {
     res.json(result)
 })
 
+// DELETE /api/events/:id (delete a single event)
 router.delete('/events/:id', async (req, res) => {
     const { id } = req.params
     const collection = await getCollection('foodtruck-api', 'events')
