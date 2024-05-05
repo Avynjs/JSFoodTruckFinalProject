@@ -5,3 +5,24 @@
 ### Get menu
 
 GET http://localhost:{{port}}/api/menu
+
+### Get events
+GET http://localhost:{{port}}/api/events
+
+### Get evnts by ID
+
+GET http://localhost:{{port}}/api/events/66353b725fd0f733f99c4bdf
+
+### Post events
+
+POST http://localhost:{{port}}/api/events
+Content-Type: application/json
+
+    {
+        "_id": "66353b725fd0f733f99chfgd",
+        "name": "Taco Tuesdays at Downtown Plaza",
+        "date": "Every Tuesday night"
+    }
+
+
+
