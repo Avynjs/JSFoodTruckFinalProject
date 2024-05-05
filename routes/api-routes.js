@@ -17,4 +17,14 @@ router.get('/events', async (req, res) => {
     res.json(events)
 })
 
+//POST /api/menu (add new menu item)
+router.post('/menu', async (req, res) => {
+    const { item, description, price } = req.body
+    const collection = await getCollection('foodtruck-api', 'menu')
+
+    const result = await collection.insertOne({ item, description, price })
+
+    res.json({ item, description, price })
+})
+
 module.exports = router

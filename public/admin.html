@@ -31,38 +31,41 @@
             </ul>
         </nav>
         <div id="wrapper">
-            <form>
-                <h3>
-                    <!--Menu Items Contain Fields: ID (auto), name, description, price-->
-                    Add Menu Items
-                </h3>
-            </form>
-            <form>
-                <h3>
-                    <!--Events Contain Fields: ID (auto), name, date (string)-->
-                    Add Events
-                </h3>
-            </form>
-            <form>
-                <h3>
-                    Update Menu Items    
-                </h3>
-            </form>
-            <form>
-                <h3>
-                    Update Events
-                </h3>
-            </form>
-            <form>
-                <h3>
-                    Delete Menu Items
-                </h3>
-            </form>
-            <form>
-                <h3>
-                    Delete Events
-                </h3>
-            </form>
+            <!--Menu Items Contain Fields: ID (auto), name, description, price-->
+            <div>
+                <h3>Add Menu Items</h3>
+                <form action="" method="" id="add-item">
+                    <input type="text" id="menu-item" placeholder="New Menu Item">
+                    <input type="text" id="description" placeholder="Item Description">
+                    <input type="text" id="price" placeholder="Item Price">
+                    <button type="submit" id="add-menu">Add Item</button>
+                </form>
+            </div>
+            <div>
+                <h3>Update Menu Items</h3>
+                <form action="">
+                    <input type="text" id="update-eventName" placeholder="Item To Update">
+                </form>
+            </div>
+            <div>
+                <h3>Delete Menu Items</h3>
+            </div>
+
+            <!--Events Contain Fields: ID (auto), name, date (string)-->
+            <div>
+                <h3>Add Events</h3>
+                <form action="" method="" id="add-event">
+                    <input type="text" id="event-name" placeholder="New Event">
+                    <input type="text" id="event-date" placeholder="Event Date">
+                    <button type="submit" id="add-event">Add Event</button>
+                </form>
+            </div>
+            <div>
+                <h3>Update Events</h3>
+            </div>
+            <div>
+                <h3>Delete Events</h3>
+            </div>
         </div>
     </body>
 </html>
