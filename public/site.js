@@ -131,6 +131,8 @@ function hideText(textID) {
     const updateEventBtn = document.getElementById('update-event-btn')
     const updateEvent = document.getElementById('update-name')
     const updateDate = document.getElementById('update-date')
+    const updateHours = document.getElementById('update-hours')
+    const updateLocation = document.getElementById('update-location')
 
     updateEventBtn.addEventListener('click', async () => {
         const id = document.getElementById('update-event-id').value
@@ -138,7 +140,7 @@ function hideText(textID) {
         const response = await fetch(`/api/events/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: updateEvent.value, date: updateDate.value })
+            body: JSON.stringify({ name: updateEvent.value, date: updateDate.value, hours: updateHours.value, location: updateLocation.value})
         })
 
         addEvent.value = ''

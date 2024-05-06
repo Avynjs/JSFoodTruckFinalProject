@@ -12,5 +12,8 @@
     "express": "^4.19.2",
     "mongodb": "^6.6.0"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^20.12.8"
+  }
 }

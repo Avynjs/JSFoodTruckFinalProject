@@ -2,7 +2,7 @@
 @port = 3000
 
 // use the event id variable by changing ___ to the id of the event created or that you would like to access
-@eventid = ___
+@testeventid = 663851e65fb1d0ea363b0661
 
 
 
@@ -15,33 +15,36 @@ GET http://localhost:{{port}}/api/menu
 GET http://localhost:{{port}}/api/events
 
 ### Get events by ID
-GET http://localhost:{{port}}/api/events/{{eventid}}
+GET http://localhost:{{port}}/api/events/{{testeventid}}
 
 ### Post events
 POST http://localhost:{{port}}/api/events
 Content-Type: application/json
 
     {
-        "name": "Sushi Wednesdays",
-        "date": "Every Wednesday Night 5-10"
+        "name": "Test Item",
+        "date": "1, 1, 2025",
+        "hours": "Hours Here",
+        "location": "Appleton" 
     }
 
 ### Put events
-PUT http://localhost:{{port}}/api/events/{{eventid}}
+PUT http://localhost:{{port}}/api/events/{{testeventid}}
 Content-Type: application/json
 
     {
-        "name": "Taco Tuesdays at Downtown Plaza",
-        "date": "Every Thursday night"
+        "name": "Test Item Updated",
+        "date": "1, 1, 2026",
+        "hours": "Updated Hours",
+        "location": "Menasha" 
     }
 
 ### Delete events
-DELETE http://localhost:{{port}}/api/events/{{eventid}}
+DELETE http://localhost:{{port}}/api/events/{{testeventid}}
 
 
 
 
-<<<<<<< HEAD
 ### Get menu items
 
 GET http://localhost:{{port}}/api/menu
@@ -56,6 +59,4 @@ Content-Type: application/json
   "description": "description here",
   "price": "$3.99"
 }
-=======
 
->>>>>>> 5787b0dad0597fbb30bff4e6e1f30869b4008f4c
