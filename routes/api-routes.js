@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { request } = require('express')
+//const { request } = require('express')
 const { getCollection, ObjectId } = require('../foodtruck-db')
 
 // GET /api/menu (getting all menu items)
@@ -33,7 +33,7 @@ router.post('/menu', async (req, res) => {
 
     const result = await collection.insertOne({ item, description, price })
 
-    res.json({ item, description, price })
+    res.json(result)
 })
 
 // POST /api/events (create a new event)
@@ -44,7 +44,7 @@ router.post('/events', async (req, res) => {
 
     const collection = await getCollection('foodtruck-api', 'events')
     const result = await collection.insertOne({ name, date, hours, location })
-    res.json({ name, date, hours, location })
+    res.json(result)
 })
 
 // PUT /api/menu/:id (update a single menu item)
@@ -65,9 +65,9 @@ router.put('/events/:id', async (req, res) => {
     const { body, params } = req
     const { id } = params
     const { name, date, hours, location } = body
+    const event = { name, date, hours, location }
 
     const collection = await getCollection('foodtruck-api', 'events')
-    const event = await collection.findOne({ _id: new ObjectId(id) })
     const result = await collection.updateOne({ _id: new ObjectId(id) }, { $set: event })
     res.json({ name, date, hours, location })
 })
@@ -75,7 +75,7 @@ router.put('/events/:id', async (req, res) => {
 // DELETE /api/menu/:id (Delete a single menu item)
 router.delete('/menu/:id', async (req, res) => {
     const { id } = req.params
-    const collection = await getCollection('foodtruck-api', 'events')
+    const collection = await getCollection('foodtruck-api', 'menu')
     const result = await collection.deleteOne({ _id: new ObjectId(id) })
     res.json(result)
 })
