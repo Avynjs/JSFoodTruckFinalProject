@@ -109,22 +109,61 @@ function hideText(textID) {
         // displayMenu(await getMenu())
     })
 
+    // Update menu item
+    const updateItemBtn = document.getElementById('update-item-btn')
+    const updateItemID = document.getElementById('update-item-id')
+    const updateItemName = document.getElementById('update-item')
+    const updateDescription = document.getElementById('update-description')
+    const updatePrice = document.getElementById('update-price')
+
+    updateEventBtn.addEventListener('click', async () => {
+        const id = document.getElementById('update-item-id').value
+
+        const response = await fetch(`/api/menu/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ item: updateItemName.value, description: updateDescription.value, price: updatePrice.value })
+        })
+
+        addItem.value = ''
+        addDescription.value = ''
+        addPrice.value = ''
+    })
+
+    // Deleting menu item
+    const deleteItemBtn = document.getElementById('delete-item-btn')
+
+    deleteEventBtn.addEventListener('click', async () => {
+        const id = document.getElementById('delete-item-id').value
+
+        const response = await fetch(`/api/menu/${id}`, {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+        })
+
+        addItem.value = ''
+        addDescription.value = ''
+        addPrice.value = ''
+    })
 
     //adding event
     const addEventBtn = document.getElementById('add-event')
     const addEvent = document.getElementById('add-name')
     const addDate = document.getElementById('add-date')
+    const addTime = document.getElementById('add-time')
+    const addLocation = document.getElementById('add-location')
 
     addEventBtn.addEventListener('click', async () => {
         const response = await fetch('/api/events', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: addEvent.value, date: addDate.value })
+            body: JSON.stringify({ name: addEvent.value, date: addDate.value, hours: addTime.value, location: addLocation.value })
         })
 
         addEvent.value = ''
         addDate.value = ''
-
+        addTime.value = ''
+        addLocation.value = ''
     })
 
     //updating event
@@ -145,6 +184,8 @@ function hideText(textID) {
 
         addEvent.value = ''
         addDate.value = ''
+        addTime.value = ''
+        addLocation.value = ''
     })
 
     //deleting event

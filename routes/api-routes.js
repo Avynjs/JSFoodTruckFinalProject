@@ -1,5 +1,5 @@
 const router = require('express').Router()
-//const { request } = require('express')
+const { request } = require('express')
 const { getCollection, ObjectId } = require('../foodtruck-db')
 
 // GET /api/menu (getting all menu items)
