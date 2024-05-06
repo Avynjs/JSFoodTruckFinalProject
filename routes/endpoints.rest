@@ -2,7 +2,7 @@
 @port = 3000
 
 // use the event id variable by changing ___ to the id of the event created or that you would like to access
-@testeventid = 663851e65fb1d0ea363b0661
+@testeventid = 66387803d4293573d687cd05
 
 
 
@@ -60,3 +60,14 @@ Content-Type: application/json
   "price": "$3.99"
 }
 
+### Update menu item
+PUT http://localhost:{{port}}/api/menu/{{testeventid}}
+Content-Type: application/json
+{
+    "item": "Test item updated",
+    "description": "description here",
+    "price": "$4.99"
+}
+
+### Delete menu items
+DELETE http://localhost:{{port}}/api/menu/{{testeventid}}

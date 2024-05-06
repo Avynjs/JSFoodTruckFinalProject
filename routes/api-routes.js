@@ -18,7 +18,15 @@ router.get('/events', async (req, res) => {
     res.json(events)
 })
 
-//POST /api/menu (add new menu item)
+// GET /api/events/:id (get a single event)
+router.get('/events/:id', async (req, res) => {
+    const { id } = req.params
+    const collection = await getCollection('foodtruck-api', 'events')
+    const event = await collection.findOne({_id: new ObjectId(id)})
+    res.json(event)
+})
+
+// POST /api/menu (add new menu item)
 router.post('/menu', async (req, res) => {
     const { item, description, price } = req.body
     const collection = await getCollection('foodtruck-api', 'menu')
@@ -28,23 +36,28 @@ router.post('/menu', async (req, res) => {
     res.json({ item, description, price })
 })
 
-// GET /api/events/:id (get a single event)
-router.get('/events/:id', async (req, res) => {
-    const { id } = req.params
-    const collection = await getCollection('foodtruck-api', 'events')
-    const event = await collection.findOne({_id: new ObjectId(id)})
-    res.json(event)
-})
-
-//POST /api/events (create a new event)
+// POST /api/events (create a new event)
 router.post('/events', async (req, res) => {
     const { body } = req
     const { name, date, hours, location } = body
-    const event = { name, date, hours, location}
+    const event = { name, date, hours, location }
 
     const collection = await getCollection('foodtruck-api', 'events')
     const result = await collection.insertOne({ name, date, hours, location })
     res.json({ name, date, hours, location })
+})
+
+// PUT /api/menu/:id (update a single menu item)
+// This successfully puts, but the data is all null. Will look into in the morning
+router.put('/menu/:id', async (req, res) => {
+    const { body, params } = req
+    const { id } = params
+    const { item, description, price } = body
+    const menu = { item, description, price }
+
+    const collection = await getCollection('foodtruck-api', 'menu')
+    const result = await collection.updateOne({ _id: new ObjectId(id) }, {$set: menu})
+    res.json({ item, description, price })
 })
 
 // PUT /api/events/:id (update a single event)
@@ -52,11 +65,19 @@ router.put('/events/:id', async (req, res) => {
     const { body, params } = req
     const { id } = params
     const { name, date, hours, location } = body
-    const event = { name, date, hours, location }
 
     const collection = await getCollection('foodtruck-api', 'events')
+    const event = await collection.findOne({ _id: new ObjectId(id) })
     const result = await collection.updateOne({ _id: new ObjectId(id) }, { $set: event })
     res.json({ name, date, hours, location })
+})
+
+// DELETE /api/menu/:id (Delete a single menu item)
+router.delete('/menu/:id', async (req, res) => {
+    const { id } = req.params
+    const collection = await getCollection('foodtruck-api', 'events')
+    const result = await collection.deleteOne({ _id: new ObjectId(id) })
+    res.json(result)
 })
 
 // DELETE /api/events/:id (delete a single event)
