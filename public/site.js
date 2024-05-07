@@ -111,12 +111,11 @@ function hideText(textID) {
 
     // Update menu item
     const updateItemBtn = document.getElementById('update-item-btn')
-    const updateItemID = document.getElementById('update-item-id')
     const updateItemName = document.getElementById('update-item')
     const updateDescription = document.getElementById('update-description')
     const updatePrice = document.getElementById('update-price')
 
-    updateEventBtn.addEventListener('click', async () => {
+    updateItemBtn.addEventListener('click', async () => {
         const id = document.getElementById('update-item-id').value
 
         const response = await fetch(`/api/menu/${id}`, {
@@ -133,7 +132,7 @@ function hideText(textID) {
     // Deleting menu item
     const deleteItemBtn = document.getElementById('delete-item-btn')
 
-    deleteEventBtn.addEventListener('click', async () => {
+    deleteItemBtn.addEventListener('click', async () => {
         const id = document.getElementById('delete-item-id').value
 
         const response = await fetch(`/api/menu/${id}`, {
@@ -147,23 +146,25 @@ function hideText(textID) {
     })
 
     //adding event
-    const addEventBtn = document.getElementById('add-event')
-    const addEvent = document.getElementById('add-name')
-    const addDate = document.getElementById('add-date')
-    const addTime = document.getElementById('add-time')
-    const addLocation = document.getElementById('add-location')
+    const addEventBtn = document.getElementById('add-event-btn')
+    const addEventName = document.getElementById('event-name')
+    const addEventDate = document.getElementById('date')
+    const addEventTime = document.getElementById('time')
+    const addEventLocation = document.getElementById('location')
 
-    addEventBtn.addEventListener('click', async () => {
-        const response = await fetch('/api/events', {
+    addEventBtn.addEventListener('click', async event => {
+        event.preventDefault()
+        await fetch('/api/events', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: addEvent.value, date: addDate.value, hours: addTime.value, location: addLocation.value })
+            body: JSON.stringify({ name: addEventName.value, date: addEventDate.value, time: addEventTime.value, location: addEventLocation.value })
         })
+        
+        addEventName.value = ''
+        addEventDate.value = ''
+        addEventTime.value = ''
+        addEventLocation.value = ''
 
-        addEvent.value = ''
-        addDate.value = ''
-        addTime.value = ''
-        addLocation.value = ''
     })
 
     //updating event
