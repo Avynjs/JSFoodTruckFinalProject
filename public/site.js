@@ -26,7 +26,7 @@ function hideText(textID) {
     const displayEvents = events => {
         h2.innerHTML = ''
         events.forEach(({ _id, name, date, hours, location }))
-        const 
+        const div = document.createElement('div') //finished line with copilot to fix error
     }
 
     // Dynamic Menu
