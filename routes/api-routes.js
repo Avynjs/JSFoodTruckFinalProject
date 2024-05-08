@@ -10,13 +10,16 @@ router.get('/menu', async (req, res) => {
 	res.json(menu)
 })
 
-// GET /api/events (get all events)
 router.get('/events', async (req, res) => {
     const collection = await getCollection('foodtruck-api', 'events')
     const events = await collection.find().toArray()
 
-    res.json(events)
+    const reducedEvents = events.map(({ _id, name }) => ({ _id, name }))
+
+    res.json(reducedEvents)
 })
+
+
 
 // GET /api/events/:id (get a single event)
 router.get('/events/:id', async (req, res) => {
