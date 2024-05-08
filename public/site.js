@@ -89,7 +89,6 @@ function hideText(textID) {
             ul.appendChild(hourli)
         })
     }
-
     displayEvents(await getEvents())
 
     // Dynamic Menu
@@ -175,13 +174,12 @@ function hideText(textID) {
     const addDescription = document.getElementById('description')
     const addPrice = document.getElementById('price')
     const addCategory = document.getElementById('category')
-    const category = addCategory.options[addCategory.selectedIndex]
 
     addItemBtn.addEventListener('click', async () => {
         const response = await fetch('/api/menu', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ item: addItem.value, description: addDescription.value, price: addPrice.value, category: addCategory.options[addCategory.selectedIndex].textContent })
+            body: JSON.stringify({ item: addItem.value, description: addDescription.value, price: addPrice.value, category: addCategory.options[addCategory.selectedIndex].text })
         })
 
         addItem.value = ''
@@ -196,6 +194,7 @@ function hideText(textID) {
     const updateItemName = document.getElementById('update-item')
     const updateDescription = document.getElementById('update-description')
     const updatePrice = document.getElementById('update-price')
+    const updateCategory = document.getElementById('update-category')
 
     updateItemBtn.addEventListener('click', async () => {
         const id = document.getElementById('update-item-id').value
@@ -203,7 +202,7 @@ function hideText(textID) {
         const response = await fetch(`/api/menu/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ item: updateItemName.value, description: updateDescription.value, price: updatePrice.value })
+            body: JSON.stringify({ item: updateItemName.value, description: updateDescription.value, price: updatePrice.value, category: updateCategory.options[updateCategory.selectedIndex].text })
         })
 
         addItem.value = ''
@@ -233,20 +232,21 @@ function hideText(textID) {
     const addEventDate = document.getElementById('date')
     const addEventTime = document.getElementById('time')
     const addEventLocation = document.getElementById('location')
+    const addEventDescription = document.getElementById('event-description')
 
     addEventBtn.addEventListener('click', async event => {
         event.preventDefault()
         await fetch('/api/events', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: addEventName.value, date: addEventDate.value, hours: addEventTime.value, location: addEventLocation.value })
+            body: JSON.stringify({ name: addEventName.value, date: addEventDate.value, hours: addEventTime.value, location: addEventLocation.value, description: addEventDescription.value })
         })
         
         addEventName.value = ''
         addEventDate.value = ''
         addEventTime.value = ''
         addEventLocation.value = ''
-
+        addEventDescription.value = ''
     })
 
     //updating event
@@ -255,6 +255,7 @@ function hideText(textID) {
     const updateDate = document.getElementById('update-date')
     const updateHours = document.getElementById('update-hours')
     const updateLocation = document.getElementById('update-location')
+    const updateEventDescription = document.getElementById('update-event-description')
 
     updateEventBtn.addEventListener('click', async () => {
         const id = document.getElementById('update-event-id').value
@@ -262,13 +263,14 @@ function hideText(textID) {
         const response = await fetch(`/api/events/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: updateEvent.value, date: updateDate.value, hours: updateHours.value, location: updateLocation.value })
+            body: JSON.stringify({ name: updateEvent.value, date: updateDate.value, hours: updateHours.value, location: updateLocation.value, description: updateEventDescription.value })
         })
 
-        addEvent.value = ''
-        addDate.value = ''
-        addTime.value = ''
-        addLocation.value = ''
+        updateEvent.value = ''
+        updateDate.value = ''
+        updateTime.value = ''
+        updateLocation.value = ''
+        updateDescription.value = ''
     })
 
     //deleting event
@@ -285,4 +287,5 @@ function hideText(textID) {
         addEvent.value = ''
         addDate.value = ''
     })
+
 })()

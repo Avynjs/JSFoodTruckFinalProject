@@ -31,10 +31,10 @@ router.get('/events/:id', async (req, res) => {
 
 // POST /api/menu (add new menu item)
 router.post('/menu', async (req, res) => {
-    const { item, description, price } = req.body
+    const { item, description, price, category } = req.body
     const collection = await getCollection('foodtruck-api', 'menu')
 
-    const result = await collection.insertOne({ item, description, price })
+    const result = await collection.insertOne({ item, description, price, category })
 
     res.json(result)
 })
@@ -42,37 +42,36 @@ router.post('/menu', async (req, res) => {
 // POST /api/events (create a new event)
 router.post('/events', async (req, res) => {
     const { body } = req
-    const { name, date, hours, location } = body
-    const event = { name, date, hours, location }
+    const { name, date, hours, location, description } = body
+    const event = { name, date, hours, location, description }
 
     const collection = await getCollection('foodtruck-api', 'events')
-    const result = await collection.insertOne({ name, date, hours, location })
+    const result = await collection.insertOne({ name, date, hours, location, description })
     res.json(result)
 })
 
 // PUT /api/menu/:id (update a single menu item)
-// This successfully puts, but the data is all null. Will look into in the morning
 router.put('/menu/:id', async (req, res) => {
     const { body, params } = req
     const { id } = params
-    const { item, description, price } = body
-    const menu = { item, description, price }
+    const { item, description, price, category } = body
+    const menu = { item, description, price, category }
 
     const collection = await getCollection('foodtruck-api', 'menu')
     const result = await collection.updateOne({ _id: new ObjectId(id) }, {$set: menu})
-    res.json({ item, description, price })
+    res.json({ item, description, price, category })
 })
 
 // PUT /api/events/:id (update a single event)
 router.put('/events/:id', async (req, res) => {
     const { body, params } = req
     const { id } = params
-    const { name, date, hours, location } = body
-    const event = { name, date, hours, location }
+    const { name, date, hours, location, description } = body
+    const event = { name, date, hours, location, description }
 
     const collection = await getCollection('foodtruck-api', 'events')
     const result = await collection.updateOne({ _id: new ObjectId(id) }, { $set: event })
-    res.json({ name, date, hours, location })
+    res.json({ name, date, hours, location, description })
 })
 
 // DELETE /api/menu/:id (Delete a single menu item)
