@@ -11,6 +11,25 @@ function hideText(textID) {
 
 (async () => {
 
+    // Dynamic Events
+
+    const showEventBtn = document.getElementsByClassName('menuBtn')
+    const h2 = document.getElementById('EventTab')
+
+    const getEvents = async() => {
+        const response = await fetch(`/api/events`)
+        const events = await response.json()
+        console.log(events)
+        return events
+    }
+
+    const displayEvents = events => {
+        h2.innerHTML = ''
+        events.forEach(({ _id, name, date, hours, location }))
+        const 
+    }
+
+    // Dynamic Menu
     // const updateMenu = async (item, description, price) => {
     //     const menu = document.getElementById('entrees')
     //     const div = document.createElement('div')
