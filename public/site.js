@@ -157,7 +157,7 @@ function hideText(textID) {
         await fetch('/api/events', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: addEventName.value, date: addEventDate.value, time: addEventTime.value, location: addEventLocation.value })
+            body: JSON.stringify({ name: addEventName.value, date: addEventDate.value, hours: addEventTime.value, location: addEventLocation.value })
         })
         
         addEventName.value = ''
@@ -180,7 +180,7 @@ function hideText(textID) {
         const response = await fetch(`/api/events/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: updateEvent.value, date: updateDate.value, hours: updateHours.value, location: updateLocation.value})
+            body: JSON.stringify({ name: updateEvent.value, date: updateDate.value, hours: updateHours.value, location: updateLocation.value })
         })
 
         addEvent.value = ''
