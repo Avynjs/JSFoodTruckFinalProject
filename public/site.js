@@ -23,11 +23,11 @@ function hideText(textID) {
         return events
     }
 
-    const displayEvents = events => {
+    /*const displayEvents = events => {
         h2.innerHTML = ''
         events.forEach(({ _id, name, date, hours, location }))
         const 
-    }
+    }*/
 
     // Dynamic Menu
     // const updateMenu = async (item, description, price) => {
