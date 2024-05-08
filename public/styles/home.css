@@ -65,14 +65,15 @@
 }
 
 .event-text p{
-    font-size: 1.2em;
+    font-size: 0.8em;
     width: 80%;
     margin-bottom: 0;
 }
 
-#event-text li{
+.event-text li{
     list-style-type: none;
     line-height: 5vh;
+    font-size: 0.7em;
 }
 
 .bold{
