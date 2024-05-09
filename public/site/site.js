@@ -1,107 +1,143 @@
-
 function displayText(textID) {
-    var text = document.getElementById(textID)
-    text.style.display = "block"
+    var text = document.getElementById(textID);
+    text.style.display = "block";
 }
 
 function hideText(textID) {
-    var text = document.getElementById(textID)
-    text.style.display = "none"
+    var text = document.getElementById(textID);
+    text.style.display = "none";
 }
 
-
-
 (async () => {
-
     // Dynamic Events
-    const h2 = document.getElementById('EventTab')
+    const h2 = document.getElementById('EventTab');
 
-    const getEvents = async() => {
-        const response = await fetch(`/api/events`)
-        const events = await response.json()
-        console.log(events)
-        return events
-    }
+    const getEvents = async () => {
+        const response = await fetch(`/api/events`);
+        const events = await response.json();
+        console.log(events);
+        return events;
+    };
 
-    const getEventsById = async(id, eventDiv) => {
-        const response = await fetch(`/api/events/${id}`)
-        const { location, description, date, hours } = await response.json()
-        
+    const getEventsById = async (id, eventDiv) => {
+        const response = await fetch(`/api/events/${id}`);
+        const { location, description, date, hours } = await response.json();
+
+        // Clear eventDiv content before adding new details
+        eventDiv.innerHTML = '';
+
         // Append p to Event Div
-        const p = document.createElement('p')
-        p.textContent = description
-        eventDiv.appendChild(p)
+        const p = document.createElement('p');
+        p.textContent = description;
+        eventDiv.appendChild(p);
 
         // Append ul to Event Div
-        const ul = document.createElement('ul')
-        eventDiv.appendChild(ul)
+        const ul = document.createElement('ul');
+        eventDiv.appendChild(ul);
 
         // Append lis to ul
-        const locli = document.createElement('li')
-        locli.textContent = "Location: " + location
-        ul.appendChild(locli)
-        const dateli = document.createElement('li')
-        dateli.textContent = "Date: " + date
-        ul.appendChild(dateli)
-        const hourli = document.createElement('li')
-        hourli.textContent = "Hours: " + hours
-        ul.appendChild(hourli)
+        const locli = document.createElement('li');
+        locli.textContent = "Location: " + location;
+        ul.appendChild(locli);
+        const dateli = document.createElement('li');
+        dateli.textContent = "Date: " + date;
+        ul.appendChild(dateli);
+        const hourli = document.createElement('li');
+        hourli.textContent = "Hours: " + hours;
+        ul.appendChild(hourli);
 
-       
-        return { location, description, date, hours }
-    }
+        return { location, description, date, hours };
+    };
 
     const displayEvents = events => {
-
         events.forEach(({ _id, name }) => {
             // Append div to h2
-            const div = document.createElement('div')
-            div.className = "event-info"
-            h2.appendChild(div)
+            const div = document.createElement('div');
+            div.className = "event-info";
+            h2.appendChild(div);
 
             // Append h3 to div
-            const h3 = document.createElement('h3')
-            h3.textContent = name
-            div.appendChild(h3)
+            const h3 = document.createElement('h3');
+            h3.textContent = name;
+            div.appendChild(h3);
 
             // Append Drop Button to h3
-            const dropButton = document.createElement('button')
-            dropButton.id = "drop"
-            dropButton.className = "menuBtn"
+            const dropButton = document.createElement('button');
+            dropButton.id = "drop";
+            dropButton.className = "menuBtn";
             dropButton.addEventListener('click', async () => {
-                const { location, description, date, hours } = await getEventsById(_id, eventDiv)
-                const response = await displayText(`event${_id}`)
-            })
-            h3.appendChild(dropButton)
-            
+                const eventDiv = document.getElementById(`event${_id}`);
+                // Check if event details are already displayed
+                if (eventDiv.style.display !== "block") {
+                    const { location, description, date, hours } = await getEventsById(_id, eventDiv);
+                    const response = await displayText(`event${_id}`);
+                }
+            });
+            h3.appendChild(dropButton);
+
             // Append i to Drop Button
-            const dropi = document.createElement('i')
-            dropi.className = "fa-solid fa-caret-down"
-            dropButton.appendChild(dropi)
+            const dropi = document.createElement('i');
+            dropi.className = "fa-solid fa-caret-down";
+            dropButton.appendChild(dropi);
 
             // Append Hide Button to h3
-            const hideButton = document.createElement('button')
-            hideButton.id = "hide"
-            hideButton.className = "menuBtn"
+            const hideButton = document.createElement('button');
+            hideButton.id = "hide";
+            hideButton.className = "menuBtn";
             hideButton.addEventListener('click', async () => {
-                const response = await hideText(`event${_id}`)
-            })
-            h3.appendChild(hideButton)
+                const response = await hideText(`event${_id}`);
+            });
+            h3.appendChild(hideButton);
 
             // Append i to Hide Button
-            const hidei = document.createElement('i')
-            hidei.className = "fa-solid fa-caret-up"
-            hideButton.appendChild(hidei)
+            const hidei = document.createElement('i');
+            hidei.className = "fa-solid fa-caret-up";
+            hideButton.appendChild(hidei);
 
-             // Append Event Text Div to main Div
-        const eventDiv = document.createElement('div')
-        eventDiv.className = "event-text"
-        eventDiv.id = `event${_id}`
-        div.appendChild(eventDiv)
+            // Append Event Text Div to main Div
+            const eventDiv = document.createElement('div');
+            eventDiv.className = "event-text";
+            eventDiv.id = `event${_id}`;
+            div.appendChild(eventDiv);
+        });
+    };
+    displayEvents(await getEvents());
 
-    })
-    }
-    displayEvents(await getEvents())
+    // Dynamic Menu
+    const getMenuItems = async () => {
+        const response = await fetch('/api/menu');
+        const menuItems = await response.json();
+        return menuItems;
+    };
+    
+    const displayMenu = menuItems => {
+        const menuContainer = document.getElementById('entrees'); // Assuming this is the container for menu items
+        menuItems.forEach(item => {
+            const menuItemDiv = document.createElement('div');
+            menuItemDiv.classList.add('menu-item');
+            
+            const h3 = document.createElement('h3');
+            h3.textContent = item.item;
+            
+            const description = document.createElement('p');
+            description.textContent = item.description;
+            
+            const price = document.createElement('p');
+            price.textContent = `Price: $${item.price}`;
+            
+            menuItemDiv.appendChild(h3);
+            menuItemDiv.appendChild(description);
+            menuItemDiv.appendChild(price);
+            
+            menuContainer.appendChild(menuItemDiv);
+        });
+    };
+    
+    displayMenu(await getMenuItems());    
+    
+
+
+
 
     // Dynamic Menu
     // const updateMenu = async (item, description, price) => {
