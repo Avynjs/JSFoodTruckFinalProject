@@ -105,35 +105,43 @@ function hideText(textID) {
 
     // Dynamic Menu
     const getMenuItems = async () => {
-        const response = await fetch('/api/menu');
-        const menuItems = await response.json();
-        return menuItems;
+        const response = await fetch(`/api/menu`);
+        const menu = await response.json();
+        return menu;
     };
     
-    const displayMenu = menuItems => {
+    const displayMenu = (menuItems) => {
         const menuContainer = document.getElementById('entrees'); // Assuming this is the container for menu items
-        menuItems.forEach(item => {
+    
+        menuItems.forEach(async (item) => {
             const menuItemDiv = document.createElement('div');
             menuItemDiv.classList.add('menu-item');
-            
+    
+            const { item: itemName, description, price } = item;
+    
             const h3 = document.createElement('h3');
-            h3.textContent = item.item;
-            
-            const description = document.createElement('p');
-            description.textContent = item.description;
-            
-            const price = document.createElement('p');
-            price.textContent = `Price: $${item.price}`;
-            
+            h3.textContent = itemName;
+    
+            const descriptionP = document.createElement('p');
+            descriptionP.textContent = description;
+    
+            const priceP = document.createElement('p');
+            priceP.textContent = `Price: $${price}`;
+    
             menuItemDiv.appendChild(h3);
-            menuItemDiv.appendChild(description);
-            menuItemDiv.appendChild(price);
-            
+            menuItemDiv.appendChild(descriptionP);
+            menuItemDiv.appendChild(priceP);
+    
+            // Append the menu item to the menu container
             menuContainer.appendChild(menuItemDiv);
         });
     };
     
-    displayMenu(await getMenuItems());    
+    // Fetch menu items and display them
+    const menuItems = await getMenuItems();
+    displayMenu(menuItems);
+    
+      
     
 
 
