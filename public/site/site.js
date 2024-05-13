@@ -101,13 +101,6 @@ function hideText(textID) {
         });
     };
     displayEvents(await getEvents());
-
-    // Dynamic Menu
-    const getMenuItems = async () => {
-        const response = await fetch(`/api/menu`);
-        const menu = await response.json();
-        return menu;
-    };
     
     const displayMenu = (menuItems) => {
         const menuContainer = document.getElementById('entrees'); // Assuming this is the container for menu items

@@ -40,22 +40,32 @@ h1{
     font-style: normal;
 }
 
+#entrees {
+    float: left;
+    width: 45%;
+    text-align: center;
+}
+
 #entrees h3{
     color: #D94F04;
 }
 
-#sides h3{
-    color: var(--title-color);
+#sidesnsweets {
+    float: right;
+    width: 45%;
+    text-align: center;
+}
+
+#sidesnsweets h3{
+    color: #D94F04;
 }
 
 #drinks{
-    margin-top: 5%;
+    clear: both;
+    text-align: center;
 }
 
-#drinks-menu h3{
-    color: #3B7302;
-}
-#grid-two{
-    display: grid;
-    grid-template-columns: 3fr 1fr 3fr;
+#drinks h3{
+    margin-top: 30px;
+    color: #D94F04;
 }
